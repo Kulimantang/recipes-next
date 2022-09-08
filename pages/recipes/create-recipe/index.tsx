@@ -6,10 +6,12 @@ import TagInput from "../../../components/Forms/TagInput";
 import { useEffect, useState } from "react";
 import RemovableTag from "../../../components/Forms/RemovableTag";
 import AddIngredients from "../../../components/Forms/AddIngredients";
+import { Ingredient } from "../../../types/Ingredient";
 
 export default function CreateRecipe() {
 
     const [tags, setTags] = useState<string[]>([]);
+    const [ingredients, setIngredients] = useState<Ingredient[]>([]);
 
     const addTag = (text: string) => {
         if (tags.includes(text)) {
@@ -22,6 +24,11 @@ export default function CreateRecipe() {
     useEffect(() => {
         setTags([
             'fast', 'easy', 'vegan'
+        ])
+        setIngredients([
+            {name: "Zwiebeln", amount: 2, unit: "Stück"},
+            {name: "Brot", amount: 5, unit: "Laib"},
+            {name: "Äpfel", amount: 10, unit: "Dosen"}
         ])
     }, [])
 
@@ -66,7 +73,7 @@ export default function CreateRecipe() {
                                 <SimpleInput label="Portionen" name="servings" id="servings" size="sm" />
                                 <TextInput label="Anleitung" id="instructions" name="instructions" rows={5} />
                                 
-                                <AddIngredients label={"Zutaten"} />
+                                <AddIngredients label={"Zutaten"} ingredients={ingredients} setIngredients={setIngredients}/>
 
                             </div>
                         </div>
