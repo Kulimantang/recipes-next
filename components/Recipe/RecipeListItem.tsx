@@ -1,5 +1,6 @@
 import React from 'react'
 import { Recipe } from '../../types/Recipe'
+import Image from 'next/image';
 
 // interface RecipeListItemProps {
 //     name: string;
@@ -14,7 +15,7 @@ const RecipeListItem = (props: Recipe) => {
         <>
             <div className="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200 max-w-sm sm:max-w-lg">
                 <div className='h-24 sm:h-40 overflow-hidden flex place-content-center'>
-                    <img className='w-full object-cover' src={props.imageUrl} alt='' />
+                    <Image className='w-full object-cover' src={props.imageUrl ? props.imageUrl : ''} alt=''  width={1000} height={500}/>
                 </div>
                 <div className="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">{props.name}</h3>

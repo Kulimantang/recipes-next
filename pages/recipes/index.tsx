@@ -1,6 +1,5 @@
 import AddRecipeButton from "../../components/Recipe/AddRecipeButton"
 import RecipeListItem from "../../components/Recipe/RecipeListItem"
-import Example from "../../components/Recipe/Test"
 import { Recipe } from "../../types/Recipe"
 
 const Recipes: Recipe[] = [
@@ -24,18 +23,13 @@ const Recipes: Recipe[] = [
 const ShowRecipes = () => {
     return (
         <div>
-            
-            {/* Recipe List: */}
             <div className="container mx-auto my-8 flex flex-col gap-4 items-center">
-
-            <AddRecipeButton/>
-
+                <AddRecipeButton />
                 {Recipes.map(recipe => {
                     return (
                         <RecipeListItem {...recipe} />
                     )
                 })}
-                <Example />
             </div>
         </div>
     )
